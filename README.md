@@ -1,6 +1,3 @@
-Brotherhood
-===========
-
 Nombre del Equipo
 ==================
 Brotherhood
