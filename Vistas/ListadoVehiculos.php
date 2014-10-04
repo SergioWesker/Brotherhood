@@ -12,15 +12,5 @@ foreach ($listar as $dato)
 	echo "<br>";
 	echo "Caracteristicas: ".$dato["caracteristicas"];
 	echo "<br><br>";
-	/*echo "Kilometraje: ".$dato["Kilometraje"];	
-	echo "<br>";
-	echo "Combustible: ".$dato["Combustible"];
-	echo "<br>";
-	echo "Golpes: ".$dato["Golpes"];
-	echo "<br>";
-	echo "Ubicacion: ".$dato["Ubicacion"];
-	echo "<br>";
-	echo "<br>";
-	*/
 }
 ?>
