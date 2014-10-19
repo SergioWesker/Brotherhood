@@ -1,5 +1,5 @@
 <?php
-session_start();
+	session_start();
 	switch($_REQUEST['controlador'])
 	{
 		case 'vehiculos':
@@ -7,9 +7,14 @@ session_start();
 			require('controlador/vehiculoCtl.php');
 			$controlador = new VehiculoCtl();
 			
-	//Ejecuta el controlador
-	$controlador->ejecutar();
-			Break;
+			//Ejecuta el controlador
+			$controlador->ejecutar();
+			break;
 
+		case 'usuarios':
+			require('controlador/sesionCtl.php');
+			$controlador = new SesionCtl();
+			$controlador->isLogged();
+			break;
 	}
 ?>
