@@ -3,7 +3,7 @@
 	{
 		function correo(){
 			
-		                  	$to = "michelle.torres@corb.mx";
+		                  	$to = "lic.nancy.torres+web@gmail.com";
                         $subject = "Correo de prueba";
                         $message = "Este es sólo un mensaje de prueba.";
                         $from = "sergio06_20@sergiowesker.byethost22.com";
