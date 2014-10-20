@@ -203,9 +203,9 @@
 
 							if (($VIN=="")||($Estado=="")) 
 								require("Vistas/error.html");
-							else 
+							else {
 								$darbaja = $this->modelo->baja($VIN,$Estado);
-							
+							}
 						}
 					}
 					break;
