@@ -119,11 +119,35 @@
 					
 					if ($validar==false&&$validarU==false) {
 						echo "Necesitas ser usuario o administrador para ver los vehiculos registrados";
-						require("Vistas/menu.php");
+						require("Vistas/menu.html");
 					}
 					else{
 						$listar = $this ->modelo -> lista();
-						require("Vistas/ListadoVehiculos.php");
+						$vista = file_get_contents("Vistas/ListadoVehiculos.html");
+						$footer = file_get_contents("Vistas/pie.html");
+						//Obtengo la fila de la tabla
+						$inicio_fila = strrpos($vista,'<tr>');
+						$final_fila = strrpos($vista,'</tr>') + 5;
+						$fila = substr($vista,$inicio_fila,$final_fila-$inicio_fila);
+
+						foreach ($listar as $dato){
+							$new_fila = $fila;
+							//Reemplazo con un diccionario
+							$diccionario = array(
+							'{VIN}' => $dato["VIN"],
+							'{Marca}' => $dato["marca"],
+							'{Modelo}' => $dato["modelo"],
+							'{Color}' => $dato["color"],
+							'{Caracteristicas}' => $dato["caracteristicas"],
+                                                        '{Ubicacion}' => $dato["Ubicacion"]);
+							$new_fila = strtr($new_fila,$diccionario);
+							$filas .= $new_fila;
+						}
+						$vista = str_replace($fila, $filas, $vista);
+						$header = strtr($header,$diccionario);
+						$vista = $header . $vista . $footer;
+						//Mostrar la vista
+						echo $vista;
 					}
 					break;
 					
